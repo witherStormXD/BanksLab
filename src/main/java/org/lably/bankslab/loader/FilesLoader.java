@@ -16,6 +16,7 @@ public class FilesLoader implements Loader {
     public void load() {
         // config.yml file
         configFile = new FileManager(plugin, "config.yml");
+        configFile = new FileManager(plugin,"messages.yml");
 
     }
 

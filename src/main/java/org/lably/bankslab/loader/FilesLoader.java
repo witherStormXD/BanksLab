@@ -9,6 +9,7 @@ public class FilesLoader implements Loader {
     private final BanksLab plugin;
     private FileManager config;
     private FileManager messages;
+    private FileManager gui;
 
     public FilesLoader(BanksLab plugin){
         this.plugin = plugin;
@@ -20,6 +21,9 @@ public class FilesLoader implements Loader {
         config = new FileManager(plugin, "config.yml");
         // messages.yml file
         messages = new FileManager(plugin,"messages.yml");
+        // gui.yml file
+        gui = new FileManager(plugin, "gui.yml");
+
 
     }
 
@@ -30,5 +34,9 @@ public class FilesLoader implements Loader {
 
     public FileManager getMessages() {
         return messages;
+    }
+
+    public FileManager getGui() {
+        return gui;
     }
 }

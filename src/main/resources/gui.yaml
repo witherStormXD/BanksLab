@@ -1,0 +1,16 @@
+Title-Gui: "&aBanks-Lab gui" #title Main Gui
+# init Deposit Item config
+Deposit-Item-Name: "&adeposita dinero a un jugador &7(Click derecho)"
+Lore-Deposit-Item:
+  - "&aExample"
+
+Deposit-slot: 10
+#End deposit Item config
+
+#init LeaveMoney config
+LeaveMoney-Item-Name: "&aRetira dinero del banco"
+LeaveMoney-Item-lore:
+  - "&7Example"
+
+LeaveMoney-slot: 15
+#end LeaveMoney config

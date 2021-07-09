@@ -7,21 +7,36 @@ import org.lably.bankslab.manager.FileManager;
 public class FilesLoader implements Loader {
 
     private final BanksLab plugin;
-    private FileManager configFile;
+    private FileManager config;
+    private FileManager messages;
+    private FileManager gui;
 
     public FilesLoader(BanksLab plugin){
         this.plugin = plugin;
     }
+
     @Override
     public void load() {
         // config.yml file
-        configFile = new FileManager(plugin, "config.yml");
-        configFile = new FileManager(plugin,"messages.yml");
+        config = new FileManager(plugin, "config.yml");
+        // messages.yml file
+        messages = new FileManager(plugin,"messages.yml");
+        // gui.yml file
+        gui = new FileManager(plugin, "gui.yml");
+
 
     }
 
 
-    public FileManager getConfigFile() {
-        return configFile;
+    public FileManager getConfig() {
+        return config;
+    }
+
+    public FileManager getMessages() {
+        return messages;
+    }
+
+    public FileManager getGui() {
+        return gui;
     }
 }

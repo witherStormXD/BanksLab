@@ -20,13 +20,12 @@ public class MainGui {
 
         FileManager gui = core.getFilesLoader().getGui();
 
-        Inventory inventory = guiBuilder.create(player,36,gui.getString("Title-Gui"));
+        Inventory inventory = guiBuilder.create(player,36, gui.getString("Title-Gui"));
 
         ItemStack depositItem = new ItemBuilder().create("IRON_INGOT",
                 gui.getString("Deposit-Item-Name"),
                 1,
                 gui.getStringList("Lore-Deposit-Item"));
-
 
         inventory.setItem(gui.getInt("Deposit-slot"), depositItem);
 
@@ -39,9 +38,6 @@ public class MainGui {
         inventory.setItem(gui.getInt("LeaveMoney-slot"), leaveMoney);
 
         player.openInventory(inventory);
-
-
-
 
     }
 

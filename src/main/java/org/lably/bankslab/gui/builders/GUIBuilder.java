@@ -7,9 +7,9 @@ import org.lably.bankslab.utils.TextColor;
 
 public class GUIBuilder {
 
-    public Inventory create(Player player, int size, String title) {
+    public Inventory create(int size, String title) {
 
-        return Bukkit.createInventory(player, size, TextColor.colorized(title));
+        return Bukkit.createInventory(null, size, TextColor.colorized(title));
 
     }
 

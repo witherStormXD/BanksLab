@@ -9,9 +9,11 @@ import java.util.List;
 
 public class ItemBuilder {
 
+    private ItemStack itemStack;
+
     public ItemStack create(String material, String displayName, int amount, List<String> lore) {
 
-        ItemStack itemStack = new ItemStack(Material.valueOf(material), amount);
+        itemStack = new ItemStack(Material.valueOf(material), amount);
 
         ItemMeta itemMeta = itemStack.getItemMeta();
 
@@ -21,6 +23,10 @@ public class ItemBuilder {
 
         itemStack.setItemMeta(itemMeta);
 
+        return itemStack;
+    }
+
+    public ItemStack getItemStack(){
         return itemStack;
     }
 }

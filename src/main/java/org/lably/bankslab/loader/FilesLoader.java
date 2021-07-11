@@ -22,7 +22,7 @@ public class FilesLoader implements Loader {
         // messages.yml file
         messages = new FileManager(plugin,"messages.yml");
         // gui.yml file
-        gui = new FileManager(plugin, "gui.yml");
+        gui = new FileManager(plugin, "gui.yaml");
 
 
     }

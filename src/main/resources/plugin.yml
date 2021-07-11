@@ -2,3 +2,8 @@ name: BanksLab
 version: ${project.version}
 main: org.lably.bankslab.BanksLab
 api-version: 1.17
+commands:
+  banklab:
+    aliases:
+      - bank
+      - bl

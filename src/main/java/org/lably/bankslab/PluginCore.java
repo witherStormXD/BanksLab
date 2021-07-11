@@ -38,7 +38,6 @@ public class PluginCore implements Core{
         }
     }
 
-
     public FilesLoader getFilesLoader() {
         return filesLoader;
     }

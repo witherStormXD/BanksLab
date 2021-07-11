@@ -6,7 +6,8 @@ public final class BanksLab extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        PluginCore pluginCore = new PluginCore(this);
+        pluginCore.init();
 
     }
 

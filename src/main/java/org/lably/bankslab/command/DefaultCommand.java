@@ -33,8 +33,14 @@ public class DefaultCommand implements CommandExecutor{
            player.sendMessage(TextColor.colorized(messages.getString("no-perms")));
            return false;
        }
-        MainGui mainGui = new MainGui(core);
-        mainGui.createGui(player);
+
+       if (!(args.length > 0)) {
+
+           MainGui mainGui = new MainGui(core);
+           mainGui.createGui(player);
+           return true;
+       }
+
          
     return false;
 

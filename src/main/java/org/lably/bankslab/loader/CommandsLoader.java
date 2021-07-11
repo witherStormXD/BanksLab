@@ -10,7 +10,7 @@ import org.bukkit.plugin.PluginManager;
 
 public class CommandsLoader implements Loader {
 
-    private PluginCore pluginCore;
+    private final PluginCore pluginCore;
 
     public CommandsLoader(PluginCore pluginCore){
         this.pluginCore = pluginCore;
@@ -19,7 +19,8 @@ public class CommandsLoader implements Loader {
     @Override
     public void load() {
         registerCommands(
-                new ExecutorBuilder("defaultcommand", new DefaultCommand(pluginCore)));
+                new ExecutorBuilder("banklab", new DefaultCommand(pluginCore))
+        );
     }
 
     public void registerCommands(ExecutorBuilder... executorBuilders){

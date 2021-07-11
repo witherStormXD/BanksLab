@@ -2,7 +2,6 @@ package org.lably.bankslab.gui;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import org.lably.bankslab.PluginCore;
 import org.lably.bankslab.gui.builders.GUIBuilder;
 import org.lably.bankslab.gui.builders.ItemBuilder;
@@ -20,22 +19,24 @@ public class MainGui {
 
         FileManager gui = core.getFilesLoader().getGui();
 
-        Inventory inventory = guiBuilder.create(player,36, gui.getString("Title-Gui"));
+        Inventory inventory = guiBuilder.create(gui.getInt("Size-Gui"), gui.getString("Title-Gui"));
 
-        ItemStack depositItem = new ItemBuilder().create("IRON_INGOT",
-                gui.getString("Deposit-Item-Name"),
-                1,
-                gui.getStringList("Lore-Deposit-Item"));
+        for (String path : gui.getConfigurationSection("Icons").getKeys(false)) {
 
-        inventory.setItem(gui.getInt("Deposit-slot"), depositItem);
+            ItemBuilder builder = new ItemBuilder();
+            builder.create(
+                    gui.getString("Icons." + path + ".Material-Item"),
+                    gui.getString("Icons." + path + ".Item-Name"),
+                    1,
+                    gui.getStringList("Icons." + path + ".Lore-Item")
+            );
 
-        ItemStack leaveMoney = new ItemBuilder().create(
-                "REDSTONE",
-                gui.getString("LeaveMoney-Item-Name"),
-                1,
-                gui.getStringList("LeaveMoney-Item-lore"));
+            inventory.setItem(
+                    gui.getInt("Icons." + path + ".Slot"),
+                    builder.getItemStack()
+            );
 
-        inventory.setItem(gui.getInt("LeaveMoney-slot"), leaveMoney);
+        }
 
         player.openInventory(inventory);
 

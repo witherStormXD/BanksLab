@@ -37,7 +37,7 @@ public class DefaultCommand implements CommandExecutor{
        if (!(args.length > 0)) {
 
            MainGui mainGui = new MainGui(core);
-           mainGui.createGui(player);
+           mainGui.mainGui(player);
            return true;
        }
 

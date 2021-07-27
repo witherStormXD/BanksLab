@@ -14,7 +14,7 @@ public class MainGui {
         this.core = core;
     }
 
-    public void createGui(Player player) {
+    public void mainGui(Player player) {
         GUIBuilder guiBuilder = new GUIBuilder();
 
         FileManager gui = core.getFilesLoader().getGui();

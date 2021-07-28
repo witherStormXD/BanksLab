@@ -24,9 +24,7 @@ public class FilesLoader implements Loader {
         // gui.yml file
         gui = new FileManager(plugin, "gui.yml");
 
-
     }
-
 
     public FileManager getConfig() {
         return config;

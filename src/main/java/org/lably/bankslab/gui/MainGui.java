@@ -8,38 +8,61 @@ import org.lably.bankslab.gui.builders.ItemBuilder;
 import org.lably.bankslab.manager.FileManager;
 
 public class MainGui {
-    private final PluginCore core;
+
+    private final FileManager gui;
 
     public MainGui(PluginCore core){
-        this.core = core;
+        this.gui = core.getFilesLoader().getGui();
     }
 
-    public void mainGui(Player player) {
+    public void generalGui(Player player) {
         GUIBuilder guiBuilder = new GUIBuilder();
 
-        FileManager gui = core.getFilesLoader().getGui();
+        Inventory inventory = guiBuilder.create(gui.getInt("General.Size-Gui"), gui.getString("General.Title-Gui"));
 
-        Inventory inventory = guiBuilder.create(gui.getInt("Size-Gui"), gui.getString("Title-Gui"));
-
-        for (String path : gui.getConfigurationSection("Icons").getKeys(false)) {
+        for (String path : gui.getConfigurationSection("General.Icons").getKeys(false)) {
 
             ItemBuilder builder = new ItemBuilder();
             builder.create(
-                    gui.getString("Icons." + path + ".Material-Item"),
-                    gui.getString("Icons." + path + ".Item-Name"),
+                    gui.getString("General.Icons." + path + ".Material-Item"),
+                    gui.getString("General.Icons." + path + ".Item-Name"),
                     1,
-                    gui.getStringList("Icons." + path + ".Lore-Item")
+                    gui.getStringList("General.Icons." + path + ".Lore-Item")
             );
 
             inventory.setItem(
-                    gui.getInt("Icons." + path + ".Slot"),
+                    gui.getInt("General.Icons." + path + ".Slot"),
                     builder.getItemStack()
             );
 
         }
 
         player.openInventory(inventory);
+    }
 
+    public void depositGui(Player player) {
+        GUIBuilder guiBuilder = new GUIBuilder();
+
+        Inventory inventory = guiBuilder.create(gui.getInt("Deposit.Size-Gui"), gui.getString("Deposit.Title-Gui"));
+
+        for (String path : gui.getConfigurationSection("Deposit.Icons").getKeys(false)) {
+
+            ItemBuilder builder = new ItemBuilder();
+            builder.create(
+                    gui.getString("Deposit.Icons." + path + ".Material-Item"),
+                    gui.getString("Deposit.Icons." + path + ".Item-Name"),
+                    1,
+                    gui.getStringList("Deposit.Icons." + path + ".Lore-Item")
+            );
+
+            inventory.setItem(
+                    gui.getInt("Deposit.Icons." + path + ".Slot"),
+                    builder.getItemStack()
+            );
+
+        }
+
+        player.openInventory(inventory);
     }
 
 }

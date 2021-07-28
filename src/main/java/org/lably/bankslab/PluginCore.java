@@ -2,6 +2,7 @@ package org.lably.bankslab;
 
 import org.lably.bankslab.api.Core;
 import org.lably.bankslab.api.Loader;
+import org.lably.bankslab.gui.MainGui;
 import org.lably.bankslab.loader.CommandsLoader;
 import org.lably.bankslab.loader.FilesLoader;
 import org.lably.bankslab.loader.ListenersLoader;
@@ -13,6 +14,7 @@ public class PluginCore implements Core{
 
     private FilesLoader filesLoader;
     private ManagerLoader managerLoader;
+    private MainGui mainGui;
 
     public PluginCore(BanksLab plugin){
         this.plugin = plugin;
@@ -25,6 +27,8 @@ public class PluginCore implements Core{
 
         managerLoader = new ManagerLoader(this);
         managerLoader.load();
+
+        mainGui = new MainGui(this);
 
         initLoaders(
                 new CommandsLoader(this),
@@ -48,5 +52,9 @@ public class PluginCore implements Core{
 
     public ManagerLoader getManagers(){
         return managerLoader;
+    }
+
+    public MainGui getMainGui() {
+        return mainGui;
     }
 }

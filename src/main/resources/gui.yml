@@ -1,4 +1,4 @@
-# Icons of main Gui
+  # Icons of main Gui
 General:
   # Title Main Gui
   Title-Gui: "&aBanks-Lab gui"
@@ -29,7 +29,7 @@ General:
     Slot: 31
     # End Leave Item config
 Deposit:
-  Title-Gui: "&aBanks-Lab gui"
+  Title-Gui: "&adeposit Banks-Lab gui"
   Size-Gui: 36
   Deposit:
     Item-Name: "&aDeposit &7(Right click)"

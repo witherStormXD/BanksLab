@@ -1,0 +1,5 @@
+BanksFile:
+  Banks:
+    BancoSantander:
+      # In this option you have to put the percentage of commission that the bank will take for each deposit
+      Deposit-commission: 3%

@@ -19,12 +19,10 @@ public class BanksProperties {
         gui.save();
         gui.reload();
     }
-    public boolean bankExist(String bankName){
+	
+    public boolean existsBank(String bankName){
         FileManager gui = core.getFilesLoader().getGui();
-    if(gui.contains("BanksFile.Banks."+bankName)){
-        return gui.contains("BanksFile.Banks."+bankName);
-    }
-        return !gui.contains("BanksFile.Banks."+bankName);
+		return gui.contains("BanksFile.Banks."+bankName);
     }
 
 }

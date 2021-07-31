@@ -20,18 +20,18 @@ public class MainGui {
 
         Inventory inventory = guiBuilder.create(gui.getInt("General.Size-Gui"), gui.getString("General.Title-Gui"));
 
-        for (String path : gui.getConfigurationSection("General.Icons").getKeys(false)) {
+        for (String path : gui.getConfigurationSection("General").getKeys(false)) {
 
             ItemBuilder builder = new ItemBuilder();
             builder.create(
-                    gui.getString("General.Icons." + path + ".Material-Item"),
-                    gui.getString("General.Icons." + path + ".Item-Name"),
+                    gui.getString("General." + path + ".material-item"),
+                    gui.getString("General." + path + ".Item-Name"),
                     1,
-                    gui.getStringList("General.Icons." + path + ".Lore-Item")
+                    gui.getStringList("General." + path + ".Lore-Item")
             );
 
             inventory.setItem(
-                    gui.getInt("General.Icons." + path + ".Slot"),
+                    gui.getInt("General." + path + ".Slot"),
                     builder.getItemStack()
             );
 

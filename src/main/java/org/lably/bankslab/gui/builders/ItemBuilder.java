@@ -13,7 +13,7 @@ public class ItemBuilder {
 
     public ItemStack create(String material, String displayName, int amount, List<String> lore) {
 
-        itemStack = new ItemStack(Material.valueOf(material), amount);
+        itemStack = new ItemStack(Material.matchMaterial(material),amount);
 
         ItemMeta itemMeta = itemStack.getItemMeta();
 

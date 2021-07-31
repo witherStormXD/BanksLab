@@ -6,6 +6,7 @@ import org.lably.bankslab.api.Loader;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
+import org.lably.bankslab.listener.BlockCommandPay;
 import org.lably.bankslab.listener.InventoryClickListener;
 
 
@@ -20,7 +21,8 @@ public class ListenersLoader implements Loader {
     @Override
     public void load() {
         registerListeners(
-                new InventoryClickListener(pluginCore)
+                new InventoryClickListener(pluginCore),
+                new BlockCommandPay(pluginCore)
         );
     }
 

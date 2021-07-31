@@ -34,14 +34,14 @@ public class InventoryClickListener implements Listener {
 
         String itemName = event.getCurrentItem().getItemMeta().getDisplayName();
 
-        if(itemName.equals(gui.getString("General.Icons.Deposit.Item-Name"))) {
+        if(itemName.equals(gui.getString("General.Deposit.Item-Name"))) {
 
             core.getMainGui().depositGui((Player) event.getWhoClicked());
             return;
             
         }
 
-        if(itemName.equals(gui.getString("General.Icons.Leave.Item-Name"))) {
+        if(itemName.equals(gui.getString("General.Leave.Item-Name"))) {
 
             event.getWhoClicked().closeInventory();
         }
@@ -57,10 +57,10 @@ public class InventoryClickListener implements Listener {
 
         String itemName = event.getCurrentItem().getItemMeta().getDisplayName();
 
-        if(itemName.equals(gui.getString("Deposit.Item-Name"))) {
+        if(itemName.equals(gui.getString("Deposit.Deposit.Item-Name"))) {
             Player player = (Player) event.getWhoClicked();
            player.closeInventory();
-            player.sendMessage(TextColor.colorized("Ingrese el valora "));
+            player.sendMessage(TextColor.colorized("Ingrese el valor"));
             return;
 
         }
@@ -71,7 +71,7 @@ public class InventoryClickListener implements Listener {
         }
     }
     @EventHandler
-    public void inMoney(AsyncPlayerChatEvent event){
+    public void receiveQuantity(AsyncPlayerChatEvent event){
         Player player = event.getPlayer();
         Economy economy = PluginCore.getEconomy();
         if(inList.contains(player)){
@@ -81,7 +81,7 @@ public class InventoryClickListener implements Listener {
             if(money <= doublecount){
                 economy.withdrawPlayer(player,doublecount);
                 inList.remove(player);
-
+                player.sendMessage(TextColor.colorized("&aThat's great! you just deposited "+doublecount+"$ from your bank account"));
             }
         }
     }
